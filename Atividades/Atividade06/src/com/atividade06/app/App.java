@@ -2,8 +2,8 @@ package com.atividade06.app;
 
 import javax.swing.JOptionPane;
 
-import model.Usuario;
-import model.Veiculo;
+import com.atividade06.model.Usuario;
+import com.atividade06.model.Veiculo;
 
 public class App {
     public static void main(String[] args) throws Exception {

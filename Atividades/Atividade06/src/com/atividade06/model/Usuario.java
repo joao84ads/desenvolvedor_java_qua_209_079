@@ -1,4 +1,4 @@
-package model;
+package com.atividade06.model;
 
 public class Usuario {
     private String nome;

@@ -1,4 +1,4 @@
-package model;
+package com.atividade06.model;
 
 import com.atividade06.interfaces.IDados;
 
