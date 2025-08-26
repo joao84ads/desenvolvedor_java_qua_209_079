@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="autor" content="João Pedro"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário CSS</title>
+
+    <!-- linkando arquivo css -->
+     <link href="css/estilos.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+    <h1>Formulário com CSS</h1>
+    <hr />
+    <form method="">
+        <input type="text" placeholder="Nome." class="nome" />
+        <input type="text" placeholder="Sobrenome." class="sobrenome">
+        <input type="tel" placeholder="Telefone:(00) 00000-0000" class="fone">
+        <input type="email" placeholder="Email: usuario@servidor.com" class="email">
+        <select class="genero" >
+            <option>Informe o gênero</option>
+            <option>Masculino</option>
+            <option>Feminino</option>
+            <option>Desejo não informar</option>
+        </select>
+        <input type="text"  placeholder="CEP: 00.000-000" class="cep"/>
+        <input type="text"  placeholder="Cidade." class="cidade"/>
+        <input type="text"  placeholder="Endereço." class="endereco"/>
+        <select class="escolar">
+            <option >Nivel Escolar</option>
+            <option >Nível fundamental</option>
+            <option >Nível médio</option>
+            <option >Nível superio</option>
+            <option >Pós-graduação</option>
+            <option >Mestrado</option>
+            <option >Doutorado</option>
+        </select>  
+        <input type="text" placeholder="Informe sua profissão" class="profi" />
+
+        <label>Cursos já Feitos: </label > 
+            <input type="checkbox" class="cursos"><span>Curso programação em C</span> 
+            <input type="checkbox" class="cursos"><span>Curso programação em C++</span> 
+            <input type="checkbox" class="cursos"><span>Curso programação em C#</span> 
+            <input type="checkbox" class="cursos"><span>Curso programação em Java</span> 
+            <input type="checkbox" class="cursos"><span>Curso programação em Python</span> 
+            <input type="checkbox" class="cursos"><span>Curso programação em JavaScript</span> 
+            <input type="checkbox" class="cursos"><span>Curso programação em Lua</span> 
+            <input type="checkbox" class="cursos"><span>Curso programação em Ruby</span> 
+            <input type="checkbox" class="cursos"><span>Curso programação em Cobol</span> 
+            <input type="checkbox" class="cursos"><span>Curso FullStack </span> 
+            <input type="checkbox" class="cursos"><span>Curso de Ingles </span> 
+        <button type="submit">Cadastrar.</button>
+    </form>
+</body>
+</html>
