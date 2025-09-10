@@ -8,15 +8,15 @@
     <title>Formulario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link href="css/estilos.css" rel="stylesheet" type="text/css" media="all">
 </head>
 
 <body>
-    <!-- inicio navbar -->
-    <nav class="navbar navbar-expand-lg mb-5 " data-bs-theme="dark"
+    <!-- Começo navbar -->
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark"
         style="background-image: linear-gradient(to bottom, #000000, #16161d, #000000)">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="assets/img/22891_container_containerred_icon.png" alt="Icone"
-                    width="48" style="margin: -10px 10px;"></a>
+            <a class="navbar-brand" href="#"><img src="img/prancheta.png" alt="Icone Java" width="50" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -25,55 +25,34 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Formulário</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                        <a class="nav-link" href="#">Cadastrar usuário</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </nav>
-    <!-- fim navbar --
-    <!-- container -->
+    <!-- Fim navbar -->
+    <!-- Começo Formulario -->
     <div class="container">
-        <h1>Formulário</h1>
+        <h1 class="imagem">Cadastrar usuário</h1>
         <hr>
         <form method="">
             <!-- linha 1 -->
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-7">
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Nome Completo:</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
+                        <span class="input-group-text" >Nome Completo:</span>
+                        <input type="text" class="form-control"  id="nome"
                             aria-describedby="inputGroup-sizing-default" required>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-5">
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Data de nascimento:</span>
-                        <input type="date" class="form-control" aria-label="Sizing example input"
+                        <span class="input-group-text" >Data de nascimento:</span>
+                        <input type="date" class="form-control" 
                             aria-describedby="inputGroup-sizing-default" required>
                     </div>
                 </div>
@@ -82,25 +61,25 @@
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">CPF:</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" placeholder="000.000.000-00" minlenght="14"
+                        <span class="input-group-text" >CPF:</span>
+                        <input type="text" class="form-control" id="cpf"
+                             placeholder="000.000.000-00" minlenght="14"
                             maxlength="15" required>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Telefone:</span>
-                        <input type="tel" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" placeholder="(00) 00000-0000" minlength="14"
+                        <span class="input-group-text" >Telefone:</span>
+                        <input type="tel" class="form-control"  id="telefone"
+                             placeholder="(00) 00000-0000" minlength="14"
                             maxlength="15" required>
                     </div>
                 </div>
                 <div class="col-12 col-md-12 col-lg-6">
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">E-mail:</span>
-                        <input type="email" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" placeholder="usuario@servidor.com" required>
+                        <span class="input-group-text" >E-mail:</span>
+                        <input type="email" class="form-control"  id="email"
+                             placeholder="usuario@servidor.com" required>
                     </div>
                 </div>
             </div>
@@ -149,24 +128,24 @@
             <div class="row">
                 <div class="col-12 col-md-8 col-lg-4">
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">CEP:</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" placeholder="00.000-000" minlength="10"
+                        <span class="input-group-text" >CEP:</span>
+                        <input type="text" class="form-control"  id="cep"
+                             placeholder="00.000-000" minlength="10"
                             maxlength="10" required>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 col-lg-2">
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">UF:</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" minlength="2" maxlength="2" required>
+                        <span class="input-group-text" >UF:</span>
+                        <input type="text" class="form-control"  id="estado"
+                             minlength="2" maxlength="2" required>
                     </div>
                 </div>
                 <div class="col-12 col-md-12 col-lg-6">
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Município:</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" required>
+                        <span class="input-group-text" >Município:</span>
+                        <input type="text" class="form-control"  id="cidade"
+                             required>
                     </div>
                 </div>
             </div>
@@ -174,23 +153,23 @@
             <div class="row">
                 <div class="col-12 col-md-8 col-lg-4">
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Bairro:</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" required>
+                        <span class="input-group-text" >Bairro:</span>
+                        <input type="text" class="form-control"  id="bairro"
+                             required>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 col-lg-2">
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Número:</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" required>
+                        <span class="input-group-text" >Número:</span>
+                        <input type="text" class="form-control"  id="numero"
+                            required>
                     </div>
                 </div>
                 <div class="col-12 col-md-12 col-lg-6">
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">complemento:</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" required>
+                        <span class="input-group-text" >complemento:</span>
+                        <input type="text" class="form-control"  id="complemento"
+                             required>
                     </div>
                 </div>
             </div>
@@ -198,20 +177,18 @@
             <div class="row">
                 <div class="col-12 col-md-12 col-lg-12">
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Logradouro:</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" required>
+                        <span class="input-group-text" >Logradouro:</span>
+                        <input type="text" class="form-control"  id="logradouro"
+                            required>
                     </div>
                 </div>
                 <div><input class="btn btn-primary" type="submit" value="Submit"></div>
         </form>
         </button>
     </div>
-    <!-- fim do container -->
-    <!-- scripts -->
+    <!-- fim do formulario -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
 </body>
-
-</html>
