@@ -12,13 +12,18 @@ public class Pessoa implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+<<<<<<< HEAD
     @GeneratedValue(strategy = GenerationType.AUTO)
+=======
+    @GeneratedValue(strategy=GenerationType.AUTO)
+>>>>>>> 057acfe (Atualização da aula 12/09/2025)
     private long idPessoa;
     private String nome;
     private String cpf;
     private String email;
 
     // construtor
+<<<<<<< HEAD
     public Pessoa(long idPessoa, String nome, String cpf, String email) {
         this.idPessoa = idPessoa;
         this.nome = nome;
@@ -27,6 +32,13 @@ public class Pessoa implements Serializable {
     }
 
     //  geters e seters 
+=======
+    public Pessoa() {
+    }
+    
+
+    // getters e setters
+>>>>>>> 057acfe (Atualização da aula 12/09/2025)
     public long getIdPessoa() {
         return this.idPessoa;
     }
@@ -58,6 +70,9 @@ public class Pessoa implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 057acfe (Atualização da aula 12/09/2025)
 }
