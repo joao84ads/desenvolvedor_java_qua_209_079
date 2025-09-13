@@ -23,6 +23,13 @@ public class Pessoa implements Serializable {
     }
     
 
+    public Pessoa(long idPessoa, String nome, String cpf, String email) {
+        this.idPessoa = idPessoa;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+    }
+
     // getters e setters
     public long getIdPessoa() {
         return this.idPessoa;
