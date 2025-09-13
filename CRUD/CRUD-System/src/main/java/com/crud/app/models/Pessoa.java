@@ -19,14 +19,11 @@ public class Pessoa implements Serializable {
     private String email;
 
     // construtor
-    public Pessoa(long idPessoa, String nome, String cpf, String email) {
-        this.idPessoa = idPessoa;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.email = email;
+    public Pessoa() {
     }
+    
 
-    //  geters e seters 
+    // getters e setters
     public long getIdPessoa() {
         return this.idPessoa;
     }
@@ -58,6 +55,4 @@ public class Pessoa implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-
-
 }
