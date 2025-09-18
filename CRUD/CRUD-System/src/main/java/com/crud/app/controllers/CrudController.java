@@ -73,6 +73,6 @@ public class CrudController {
     public String excluirUsuario(long idPessoa) {
         Pessoa usuario = csr.findByIdPessoa(idPessoa);
         csr.delete(usuario);
-        return "redirect:/listarUsuarios";
+        return "redirect:/listarUsuario";
     }
 }
