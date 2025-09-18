@@ -76,7 +76,7 @@
                     <span th:text="${usuario.email}"></span>
                 </div>
                 <div class="col-2">
-                    <a th:href="@{'/alterarUsuario' + ${usuario.idPessoa}}" class="btn btn-warning btn-sm me-1">Alterar</a>
+                    <a th:href="@{'/alterarUsuario/' + ${usuario.idPessoa}}" class="btn btn-warning btn-sm me-1">Alterar</a>
                     <a href="/excluir/1" class="btn btn-danger btn-sm">Excluir</a>
                 </div>
             </div>

@@ -13,8 +13,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.crud.app.models.Pessoa;
 import com.crud.app.repository.AppRepository;
 
-
-
 @Controller
 public class CrudController {
     @Autowired
@@ -25,44 +23,46 @@ public class CrudController {
         return "index";
     }
 
-    @RequestMapping(value = "/cadastrar", method = RequestMethod.GET)
+    @RequestMapping(value="/cadastrar", method=RequestMethod.GET)
     public String cadastrar() {
         return "cadastrar";
     }
 
-    @RequestMapping(value = "/cadastrar", method = RequestMethod.POST)
+    @RequestMapping(value="/cadastrar", method=RequestMethod.POST)
     public String cadastrar(Pessoa usuario) {
         csr.save(usuario);
         return "redirect:/";
     }
 
-    // lista todos os usuarios cadastrados
-    @RequestMapping(value = "/listarUsuario", method = RequestMethod.GET)
-    public ModelAndView listarUsuario() {
+    // lista todos os usuários cadastrados
+    @RequestMapping(value="/listarUsuario", method=RequestMethod.GET)
+    public ModelAndView listarUsuarios() {
         ModelAndView mv = new ModelAndView("listarUsuario");
         Iterable<Pessoa> usuarios = csr.findAll();
         mv.addObject("usuarios", usuarios);
         return mv;
     }
 
-    // Alterar usuario
-    @RequestMapping(value = "/alterarUsuario/{idPessoa}", method = RequestMethod.GET)
-    public ModelAndView alterarUsuario(@PathVariable("idPessoa")long idPessoa) {
+    // alterar
+    @RequestMapping(value="/alterarUsuario/{idPessoa}", method=RequestMethod.GET)
+    public ModelAndView alterarUsuario(@PathVariable("idPessoa") long idPessoa) {
         Pessoa usuario = csr.findByIdPessoa(idPessoa);
         ModelAndView mv = new ModelAndView("alterarUsuario");
         mv.addObject("usuario", usuario);
         return mv;
     }
 
-    @RequestMapping(value="/alterarUsuario/{idPessoa}", method = RequestMethod.POST)
-    public String alterarUsuario(@Validated Pessoa usuario, BindingResult result, RedirectAttributes attributes){
+
+    @RequestMapping(value="/alterarUsuario/{idPessoa}", method=RequestMethod.POST)
+    public String alterarUsuario(@Validated Pessoa usuario, BindingResult result, RedirectAttributes attributes) {
         csr.save(usuario);
-        return "redirect:listarUsuario";
+        return "redirect:/listarUsuario";
     }
 
-    // Excluir usuario
+
+    // excluir
     @RequestMapping("/confirmarExclusao/{idPessoa}")
-    public ModelAndView confirmarExclusao(@PathVariable("idPessoa")long idPessoa){
+    public ModelAndView confirmarExclusao(@PathVariable("idPessoa") long idPessoa) {
         Pessoa usuario = csr.findByIdPessoa(idPessoa);
         ModelAndView mv = new ModelAndView("excluirUsuario");
         mv.addObject("usuario", usuario);
@@ -73,9 +73,6 @@ public class CrudController {
     public String excluirUsuario(long idPessoa) {
         Pessoa usuario = csr.findByIdPessoa(idPessoa);
         csr.delete(usuario);
-        return "redirect:/listarUsuario";
+        return "redirect:/listarUsuarios";
     }
-    
-        
-    
 }

@@ -5,14 +5,15 @@
     <meta charset="utf-8">
     <meta name="author" content="João Pedro">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Alterar usuario</title>
+    <title>Cadastrar usuário</title>
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
     <!-- favicon -->
-    <link href="img/icone.png" rel="shortcut icon" type="image/png">
+    <link rel="icon" href="/img/icone.png" type="image/png">
+
 
     <!-- css externo -->
     <link href="css/estilo.css" rel="stylesheet" type="text/css" media="all">
@@ -23,7 +24,7 @@
     <nav class="navbar navbar-expand-lg mb-5" data-bs-theme="dark" style="background-color: #16161d;">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
-                <img src="img/icone.png" alt="Ícone">
+               <img src="img/icone.png" alt="Ícone">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -49,7 +50,7 @@
 
     <!-- container -->
     <div class="container">
-        <h1 class="text-center">Alterar dados do usuário</h1>
+        <h1 class="text-center">alterar usuario</h1>
         <hr class="mb-5">
 
         <form method="POST">
@@ -57,15 +58,15 @@
                 <div class="col-12 col-md-8 col-lg-6">
                     <div class="mb-4">
                         <label for="nome" class="form-label">Nome</label>
-                        <input type="text" name="nome" id="nome" class="form-control" required th:value="${usuario.nome}"> 
+                        <input type="text" name="nome" id="nome" class="form-control" th:value="${usuario.nome}" required>
                     </div>
                     <div class="mb-4">
                         <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" name="cpf" id="cpf" class="form-control" required>
+                        <input type="text" name="cpf" id="cpf" class="form-control" th:value="${usuario.cpf}" required>
                     </div>
                     <div class="mb-5">
                         <label for="email" class="form-label">E-mail</label>
-                        <input type="email" name="email" id="email" class="form-control" required>
+                        <input type="email" name="email" id="email" class="form-control" th:value="${usuario.email}" required>
                     </div>
                     <div class="d-grid">
                         <button type="submit" class="btn btn-primary">Cadastrar pessoa</button>
