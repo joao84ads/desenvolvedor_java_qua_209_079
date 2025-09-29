@@ -2,7 +2,7 @@ package com.ProjetoFinal.app.models;
 
 import java.sql.Date;
 
-import com.ProjetoFinal.app.models.enums.Estado;
+import com.ProjetoFinal.app.models.Enums.Estado;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -23,15 +23,14 @@ public class Endereco {
     private String cidade;
     private String bairro;
     private Date dataVisto;
-    
+
     // ENUMS
     @Enumerated(EnumType.STRING)
-    private Estado estado;
-   
+    private Estado estado = null;
 
     // Getters e Setters
 
-    public Long getIdEnderco() {
+    public Long getIdEndereco() {
         return this.idEndereco;
     }
 
@@ -78,7 +77,5 @@ public class Endereco {
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
-
-   
 
 }

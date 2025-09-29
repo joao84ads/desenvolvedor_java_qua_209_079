@@ -1,10 +1,10 @@
 package com.ProjetoFinal.app.models;
 
-import com.ProjetoFinal.app.models.enums.CorCabelo;
-import com.ProjetoFinal.app.models.enums.CorOlhos;
-import com.ProjetoFinal.app.models.enums.TipoCabelo;
-import com.ProjetoFinal.app.models.enums.TipoCorpo;
-import com.ProjetoFinal.app.models.enums.TipoPele;
+import com.ProjetoFinal.app.models.Enums.CorCabelo;
+import com.ProjetoFinal.app.models.Enums.CorOlhos;
+import com.ProjetoFinal.app.models.Enums.TipoCabelo;
+import com.ProjetoFinal.app.models.Enums.TipoCorpo;
+import com.ProjetoFinal.app.models.Enums.TipoPele;
 
 import jakarta.persistence.*;
 

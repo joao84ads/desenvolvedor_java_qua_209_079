@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.ProjetoFinal.app.PessoaRepository;
+import com.ProjetoFinal.app.CruidRepository;
+import com.ProjetoFinal.app.models.Enums.CorOlhos;
+import com.ProjetoFinal.app.models.Enums.Estado;
 import com.ProjetoFinal.app.models.Pessoa;
 
 @Controller
@@ -34,7 +36,7 @@ public class ProjetoController {
     }
 
     @Autowired
-    private PessoaRepository pessoaRepository;
+    private CruidRepository pessoaRepository;
 
     @GetMapping("/cadastrar")
     public String cadastrarForm(Model model) {
@@ -47,4 +49,17 @@ public class ProjetoController {
         pessoaRepository.save(pessoa);
         return "redirect:/";
     }
+
+    @ModelAttribute("estados")
+    public Estado[] getEstados() {
+        return Estado.values();
+    }
+
+    @ModelAttribute("corOlhos")
+    public CorOlhos[] getCorOlhos() {
+        return CorOlhos.values();
+    }
+
+    
+
 }

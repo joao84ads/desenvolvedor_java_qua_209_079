@@ -2,7 +2,7 @@ package com.ProjetoFinal.app.models;
 
 import java.io.Serializable;
 
-import com.ProjetoFinal.app.models.enums.Genero;
+import com.ProjetoFinal.app.models.Enums.Genero;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -36,7 +36,8 @@ public class Pessoa implements Serializable {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id")
-    private Endereco endereco;
+    private Endereco endereco = null;
+
     // Getters e Setters
 
     public long getIdPessoa() {

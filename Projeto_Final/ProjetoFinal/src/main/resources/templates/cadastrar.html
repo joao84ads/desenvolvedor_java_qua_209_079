@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" >
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -20,20 +20,21 @@
             <h1 class="text-center">Cadastro de Pessoas Desaparecidas</h1>
             <hr class="mb-5">
 
-            <form action="/cadastrar" method="POST" th:object="${pessoa}">
+            <form th:action="@{/cadastrar}" th:object="${pessoa}" method="post">
                 <div class="row justify-content-center">
 
                     <div class="col-6 mb-3">
                         <label for="nomePessoa" class="form-label">Nome da Pessoa</label>
-                        <input type="text" th:field="*{nome}" class="form-control" id="nome" placeholder="Digite o nome da pessoa"
-                            required>
+                        <input type="text" th:field="*{nome}" class="form-control" id="nome"
+                            placeholder="Digite o nome da pessoa" required>
                     </div>
                     <div class="col-2 mb-3">
                         <div class="form-check">
                             <label for="nome" class="form-label">Gênero:</label>
-                            <select class="form-select" th:field="*{genero}" id="genero" required>
-                                <option value= "" selected disabled>Selecione o Gênero</option>
-                                <option value="masculino">Masculino</option>
+                            <select class="form-select" th:field="*{genero}" id="genero"
+                                placeholder="selecione o Gênero" required>
+                                <option value="">Selecione...</option>
+                                <option value="masculino">MASCULINO</option>
                                 <option value="feminino">Feminino</option>
                                 <option value="outro">Outro</option>
                             </select>
@@ -41,7 +42,8 @@
                     </div>
                     <div class="col-4 mb-3">
                         <label for="nome" class="form-label ">Data de nascimento:</label>
-                        <input type="date" th:field="*{dataNascimento}" name="dataNascimento" id="dataNascimento" class="form-control">
+                        <input type="date" th:field="*{dataNascimento}" name="dataNascimento" id="dataNascimento"
+                            class="form-control">
                     </div>
                     <div class="col-12">
                         <h4 class="mb-4">Características Físicas</h4>
@@ -49,21 +51,17 @@
 
                     <div class="col-4 mb-4">
                         <label for="corOlhos" class="form-label">Cor dos Olhos:</label>
-                        <select class="form-select" th:field="*{caracteristicas.corOlhos}" id="corOlhos" >
-                            <option value="" selected disabled>Selecione</option>
-                            <option value="castanho">Castanho</option>
-                            <option value="azul">Azul</option>
-                            <option value="verde">Verde</option>
-                            <option value="preto">Preto</option>
-                            <option value="cinza">Cinza</option>
-                            <option value="outro">Outro</option>
+                        <select class="form-select" th:field="*{caracteristicas.corOlhos}" id="corOlhos">
+                            <option value="">Selecione...</option>
+                            <option th:each="cor : ${coresOlhos}" th:value="${cor}" th:text="${cor}"></option>
                         </select>
                     </div>
+
                     <div class="col-4 mb-4">
                         <label for="corCabelo" class="form-label">Cor do Cabelo:</label>
-                        <select class="form-select" th:field="*{caracteristicas.corCabelo}" id="corCabelo" >
-                            <option value="" selected disabled>Selecione</option>
-                            <option value="preto">Preto</option>
+                        <select class="form-select" th:field="*{caracteristicas.corCabelo}" id="corCabelo">
+                            <option value="">Selecione...</option>
+                            <option value="preto">PRETO</option>
                             <option value="castanho">Castanho</option>
                             <option value="loiro">Loiro</option>
                             <option value="ruivo">Ruivo</option>
@@ -74,8 +72,8 @@
                     <div class="col-4 mb-4">
                         <label for="tipoCabelo" class="form-label">Tipo de Cabelo:</label>
                         <select class="form-select" th:field="*{caracteristicas.tipoCabelo}" id="tipoCabelo">
-                            <option value="" selected disabled>Selecione</option>
-                            <option value="liso">Liso</option>
+                            <option value="">Selecione...</option>
+                            <option value="liso">LISO</option>
                             <option value="ondulado">Ondulado</option>
                             <option value="cacheado">Cacheado</option>
                             <option value="crespo">Crespo</option>
@@ -84,8 +82,8 @@
                     <div class="col-6 mb-4">
                         <label for="tipoCorpo" class="form-label">Tipo de Corpo:</label>
                         <select class="form-select" th:field="*{caracteristicas.tipoCorpo}" id="tipoCorpo">
-                            <option value="" selected disabled>Selecione</option>
-                            <option value="ectomorfo">Ectomorfo (Magro)</option>
+                            <option value="">Selecione...</option>
+                            <option value="ectomorfo">MAGRO</option>
                             <option value="mesomorfo">Mesomorfo (Atlético)</option>
                             <option value="endomorfo">Endomorfo (Robusto)</option>
                         </select>
@@ -93,8 +91,8 @@
                     <div class="col-6 mb-4">
                         <label for="pele" class="form-label">Tipo de Pele:</label>
                         <select class="form-select" th:field="*{caracteristicas.pele}" id="pele">
-                            <option value="" selected disabled>Selecione</option>
-                            <option value="branca">Branca</option>
+                            <option value="">Selecione...</option>
+                            <option value="branca">BRANCA</option>
                             <option value="negra">Negra</option>
                             <option value="parda">Parda</option>
                             <option value="amarela">Amarela</option>
@@ -107,12 +105,13 @@
                     <div class="col-md-6 mb-4">
                         <label class="form-label">Possui tatuagens?</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" th:field="*{caracteristicas.tatuagem}" name="tatuagem" id="tatuagemSim" value="true">
+                            <input class="form-check-input" type="radio" th:field="*{caracteristicas.tatuagem}"
+                                name="tatuagem" id="tatuagemSim" value="true">
                             <label class="form-check-label" for="tatuagemSim">Sim</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" th:field="*{caracteristicas.tatuagem}" name="tatuagem" id="tatuagemNao" value="false"
-                                checked>
+                            <input class="form-check-input" type="radio" th:field="*{caracteristicas.tatuagem}"
+                                name="tatuagem" id="tatuagemNao" value="false" checked>
                             <label class="form-check-label" for="tatuagemNao">Não</label>
                         </div>
                     </div>
@@ -120,20 +119,21 @@
                     <div class="col-md-6 mb-4">
                         <label class="form-label">Possui cicatrizes?</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" th:field="*{caracteristicas.cicatriz}" name="cicatriz" id="cicatrizSim" value="true">
+                            <input class="form-check-input" type="radio" th:field="*{caracteristicas.cicatriz}"
+                                name="cicatriz" id="cicatrizSim" value="true">
                             <label class="form-check-label" for="cicatrizSim">Sim</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" th:field="*{caracteristicas.cicatriz}" name="cicatriz" id="cicatrizNao" value="false"
-                                checked>
+                            <input class="form-check-input" type="radio" th:field="*{caracteristicas.cicatriz}"
+                                name="cicatriz" id="cicatrizNao" value="false" checked>
                             <label class="form-check-label" for="cicatrizNao">Não</label>
                         </div>
                     </div>
                     <div class="col-9"></div>
                     <div class="col-12 mb-4">
                         <label for="observacoes" class="form-label">Observações</label>
-                        <textarea class="form-control" th:field="*{caracteristicas.observacoes}" id="observacoes" rows="3"
-                            placeholder="Alguma característica adicional que queira destacar..."></textarea>
+                        <textarea class="form-control" th:field="*{caracteristicas.observacoes}" id="observacoes"
+                            rows="3" placeholder="Alguma característica adicional que queira destacar..."></textarea>
                     </div>
                     <div class="col-12">
                         <h4 class="mb-4">Ultimo local aonde pessoa desaparecida foi visto:</h4>
@@ -141,49 +141,28 @@
                     <div class="col-3 mb-3">
                         <label for="estado" class="form-label">Estado</label>
                         <select class="form-select" th:field="*{endereco.estado}" id="estado">
-                            <option selected disabled>Selecione um estado</option>
-                            <option value="AC">Acre</option>
-                            <option value="AL">Alagoas</option>
-                            <option value="AP">Amapá</option>
-                            <option value="AM">Amazonas</option>
-                            <option value="BA">Bahia</option>
-                            <option value="CE">Ceará</option>
-                            <option value="DF">Distrito Federal</option>
-                            <option value="ES">Espírito Santo</option>
-                            <option value="GO">Goiás</option>
-                            <option value="MA">Maranhão</option>
-                            <option value="MT">Mato Grosso</option>
-                            <option value="MS">Mato Grosso do Sul</option>
-                            <option value="MG">Minas Gerais</option>
-                            <option value="PA">Pará</option>
-                            <option value="PB">Paraíba</option>
-                            <option value="PR">Paraná</option>
-                            <option value="PE">Pernambuco</option>
-                            <option value="PI">Piauí</option>
-                            <option value="RJ">Rio de Janeiro</option>
-                            <option value="RN">Rio Grande do Norte</option>
-                            <option value="RS">Rio Grande do Sul</option>
-                            <option value="RO">Rondônia</option>
-                            <option value="RR">Roraima</option>
-                            <option value="SC">Santa Catarina</option>
-                            <option value="SP">São Paulo</option>
-                            <option value="SE">Sergipe</option>
-                            <option value="TO">Tocantins</option>
+                            <option value="">Selecione...</option>
+                            <option th:each="estado : ${estados}" th:value="${estado}" th:text="${estado}"
+                                placeholder="Selecione um estado"></option>
                         </select>
                     </div>
+
                     <div class="col-3 mb-3">
                         <label for="cidade" class="form-label">Cidade</label>
-                        <input type="text" th:field="*{endereco.cidade}" class="form-control" id="cidade" placeholder="Ex: São Paulo">
+                        <input type="text" th:field="*{endereco.cidade}" class="form-control" id="cidade"
+                            placeholder="Ex: São Paulo">
                     </div>
                     <div class="col-6 mb-3">
                         <label for="bairro" class="form-label">Bairro</label>
-                        <input type="text" th:field="*{endereco.bairro}" class="form-control" id="bairro" placeholder="Ex: Centro">
+                        <input type="text" th:field="*{endereco.bairro}" class="form-control" id="bairro"
+                            placeholder="Ex: Centro">
 
                     </div>
                     <div class="col-6">
                         <div class="col-12 mb-3">
                             <label for="rua" class="form-label">Rua/Avenida</label>
-                            <input type="text" th:field="*{endereco.rua}" class="form-control" id="rua" placeholder="Ex: Rua das Flores, 123">
+                            <input type="text" th:field="*{endereco.rua}" class="form-control" id="rua"
+                                placeholder="Ex: Rua das Flores, 123">
                         </div>
                     </div>
                     <div class="col-6">
