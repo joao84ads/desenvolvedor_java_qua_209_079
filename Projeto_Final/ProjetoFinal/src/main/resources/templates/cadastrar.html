@@ -29,16 +29,11 @@
                             placeholder="Digite o nome da pessoa" required>
                     </div>
                     <div class="col-2 mb-3">
-                        <div class="form-check">
-                            <label for="nome" class="form-label">Gênero:</label>
-                            <select class="form-select" th:field="*{genero}" id="genero"
-                                placeholder="selecione o Gênero" required>
-                                <option value="">Selecione...</option>
-                                <option value="masculino">MASCULINO</option>
-                                <option value="feminino">Feminino</option>
-                                <option value="outro">Outro</option>
-                            </select>
-                        </div>
+                        <label for="genero" class="form-label">Gênero</label>
+                        <select class="form-select" th:field="*{genero}" id="genero">
+                            <option value="">Selecione...</option>
+                            <option th:each="genero : ${genero}" th:value="${genero}" th:text="${genero}"></option>
+                        </select>
                     </div>
                     <div class="col-4 mb-3">
                         <label for="nome" class="form-label ">Data de nascimento:</label>
@@ -51,52 +46,52 @@
 
                     <div class="col-4 mb-4">
                         <label for="corOlhos" class="form-label">Cor dos Olhos:</label>
+
                         <select class="form-select" th:field="*{caracteristicas.corOlhos}" id="corOlhos">
                             <option value="">Selecione...</option>
-                            <option th:each="cor : ${coresOlhos}" th:value="${cor}" th:text="${cor}"></option>
+
+                            <option th:each="cor : ${corOlhos}" th:value="${cor}" th:text="${cor}"></option>
+
                         </select>
                     </div>
 
                     <div class="col-4 mb-4">
-                        <label for="corCabelo" class="form-label">Cor do Cabelo:</label>
+                        <label for="corCabelos" class="form-label">Cor dos Cabelos:</label>
+
                         <select class="form-select" th:field="*{caracteristicas.corCabelo}" id="corCabelo">
                             <option value="">Selecione...</option>
-                            <option value="preto">PRETO</option>
-                            <option value="castanho">Castanho</option>
-                            <option value="loiro">Loiro</option>
-                            <option value="ruivo">Ruivo</option>
-                            <option value="grisalho">Grisalho</option>
-                            <option value="outro">Outro</option>
+
+                            <option th:each="cor : ${corCabelo}" th:value="${cor}" th:text="${cor}"></option>
+
                         </select>
                     </div>
                     <div class="col-4 mb-4">
-                        <label for="tipoCabelo" class="form-label">Tipo de Cabelo:</label>
+                        <label for="tipoCabelo" class="form-label">Tipo dos cabelos:</label>
+
                         <select class="form-select" th:field="*{caracteristicas.tipoCabelo}" id="tipoCabelo">
                             <option value="">Selecione...</option>
-                            <option value="liso">LISO</option>
-                            <option value="ondulado">Ondulado</option>
-                            <option value="cacheado">Cacheado</option>
-                            <option value="crespo">Crespo</option>
+
+                            <option th:each="cor : ${tipoCabelo}" th:value="${cor}" th:text="${cor}"></option>
+
                         </select>
                     </div>
                     <div class="col-6 mb-4">
                         <label for="tipoCorpo" class="form-label">Tipo de Corpo:</label>
+
                         <select class="form-select" th:field="*{caracteristicas.tipoCorpo}" id="tipoCorpo">
                             <option value="">Selecione...</option>
-                            <option value="ectomorfo">MAGRO</option>
-                            <option value="mesomorfo">Mesomorfo (Atlético)</option>
-                            <option value="endomorfo">Endomorfo (Robusto)</option>
+
+                            <option th:each="cor : ${tipoCorpo}" th:value="${cor}" th:text="${cor}"></option>
+
                         </select>
                     </div>
                     <div class="col-6 mb-4">
-                        <label for="pele" class="form-label">Tipo de Pele:</label>
-                        <select class="form-select" th:field="*{caracteristicas.pele}" id="pele">
+                        <label for="tipoPele" class="form-label">Tipo de pele:</label>
+
+                        <select class="form-select" th:field="*{caracteristicas.pele}" id="tipoPele">
                             <option value="">Selecione...</option>
-                            <option value="branca">BRANCA</option>
-                            <option value="negra">Negra</option>
-                            <option value="parda">Parda</option>
-                            <option value="amarela">Amarela</option>
-                            <option value="indigena">Indígena</option>
+
+                            <option th:each="pele : ${tipoPele}" th:value="${pele}" th:text="${pele}"></option>
                         </select>
                     </div>
                     <div class="col-12">

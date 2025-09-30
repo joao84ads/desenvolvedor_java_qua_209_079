@@ -30,7 +30,7 @@ public class Caracteristicas {
     private TipoCorpo tipoCorpo;
 
     @Enumerated(EnumType.STRING)
-    private TipoPele pele;
+    private TipoPele tipoPele;
 
     // SIM/NÃO
     private boolean tatuagem;
@@ -82,11 +82,11 @@ public class Caracteristicas {
     }
 
     public TipoPele getPele() {
-        return pele;
+        return tipoPele;
     }
 
     public void setPele(TipoPele pele) {
-        this.pele = pele;
+        this.tipoPele = pele;
     }
 
     public boolean isTatuagem() {

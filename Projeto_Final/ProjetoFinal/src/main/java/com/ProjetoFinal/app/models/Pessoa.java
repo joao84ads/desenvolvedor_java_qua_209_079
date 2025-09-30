@@ -2,6 +2,7 @@ package com.ProjetoFinal.app.models;
 
 import java.io.Serializable;
 
+// import com.ProjetoFinal.app.models.Enums.CorOlhos;
 import com.ProjetoFinal.app.models.Enums.Genero;
 
 import jakarta.persistence.CascadeType;
@@ -21,7 +22,7 @@ public class Pessoa implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idPessoa;
     private String nome;
     private String dataNascimento;
@@ -29,6 +30,10 @@ public class Pessoa implements Serializable {
     // ENUMS
     @Enumerated(EnumType.STRING)
     private Genero genero;
+
+    // @Enumerated(EnumType.STRING)
+    // private CorOlhos corOlhos;
+
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "caracteristicas_id")
@@ -87,5 +92,13 @@ public class Pessoa implements Serializable {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
+    // public CorOlhos getCorOlhos() {
+    //     return corOlhos;
+    // }
+    // public void setCorOlhos(CorOlhos corOlhos) {
+    //     this.corOlhos = corOlhos;
+    // }
+
 
 }
