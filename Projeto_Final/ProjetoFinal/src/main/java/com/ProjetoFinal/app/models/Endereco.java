@@ -1,9 +1,13 @@
 package com.ProjetoFinal.app.models;
 
-import java.sql.Date;
+
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.ProjetoFinal.app.models.Enums.Estado;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -22,7 +26,10 @@ public class Endereco {
     private String rua;
     private String cidade;
     private String bairro;
-    private Date dataVisto;
+
+     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(name = "data_visto")
+    private LocalDate dataVisto;
 
     // ENUMS
     @Enumerated(EnumType.STRING)
@@ -62,11 +69,11 @@ public class Endereco {
         this.bairro = bairro;
     }
 
-    public Date getDataVisto() {
-        return this.dataVisto;
+   public LocalDate getDataVisto() {
+        return dataVisto;
     }
 
-    public void setDataVisto(Date dataVisto) {
+    public void setDataVisto(LocalDate dataVisto) {
         this.dataVisto = dataVisto;
     }
 

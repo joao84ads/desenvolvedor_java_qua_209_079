@@ -1,11 +1,14 @@
 package com.ProjetoFinal.app.models;
 
 import java.io.Serializable;
-
+import java.time.LocalDate; // NOVA IMPORTAÇÃO
 // import com.ProjetoFinal.app.models.Enums.CorOlhos;
 import com.ProjetoFinal.app.models.Enums.Genero;
 
+import org.springframework.format.annotation.DateTimeFormat; // NOVA IMPORTAÇÃO
+
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -13,6 +16,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -24,16 +28,16 @@ public class Pessoa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idPessoa;
+
     private String nome;
-    private String dataNascimento;
+
+   
+    @DateTimeFormat(pattern = "yyyy-MM-dd") 
+    private LocalDate dataNascimento;
 
     // ENUMS
     @Enumerated(EnumType.STRING)
     private Genero genero;
-
-    // @Enumerated(EnumType.STRING)
-    // private CorOlhos corOlhos;
-
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "caracteristicas_id")
@@ -43,7 +47,17 @@ public class Pessoa implements Serializable {
     @JoinColumn(name = "endereco_id")
     private Endereco endereco = null;
 
+    @Lob
+    @Column(name = "foto", columnDefinition = "LONGBLOB")
+    private byte[] foto;
+
     // Getters e Setters
+    public byte[] getFoto() {
+        return foto;
+    }
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
 
     public long getIdPessoa() {
         return this.idPessoa;
@@ -61,11 +75,12 @@ public class Pessoa implements Serializable {
         this.nome = nome;
     }
 
-    public String getDataNascimento() {
+    
+    public LocalDate getDataNascimento() {
         return this.dataNascimento;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -92,13 +107,4 @@ public class Pessoa implements Serializable {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-
-    // public CorOlhos getCorOlhos() {
-    //     return corOlhos;
-    // }
-    // public void setCorOlhos(CorOlhos corOlhos) {
-    //     this.corOlhos = corOlhos;
-    // }
-
-
 }

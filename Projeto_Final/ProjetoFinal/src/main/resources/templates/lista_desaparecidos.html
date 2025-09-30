@@ -5,24 +5,158 @@
     <meta charset="utf-8">
     <meta name="author" content="João Pedro Lopes Vieira">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sistema Cadastro Desaparecidos</title>
+    <title>Lista de Pessoas Desaparecidas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link th:href="@{/css/estilo.css}" rel="stylesheet" type="text/css" media="all" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
+    <style>
+        .card-img-custom {
+            height: 300px;
+            /* Altura fixa para manter o grid uniforme */
+            object-fit: cover;
+            /* Garante que a imagem preencha o espaço sem distorcer */
+            width: 100%;
+        }
+    </style>
 </head>
+
 <body data-bs-theme="dark">
-    <header th:replace="fragments/navbar :: navbar"></header>
+    <header th:replace="~{fragments/navbar :: navbar}"></header>
+
     <main>
         <div class="container mt-5 mb-5">
             <h1 class="text-center">Lista de pessoas desaparecidas</h1>
             <hr class="mb-5">
+
+            <div th:if="${#lists.isEmpty(desaparecidos)}" class="alert alert-info text-center" role="alert">
+                Ainda não há pessoas cadastradas como desaparecidas.
+            </div>
+
+            <div th:unless="${#lists.isEmpty(desaparecidos)}" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+
+                <div class="col" th:each="pessoa : ${desaparecidos}">
+                    <div class="card h-100">
+
+                        <img th:src="@{/imagem/{id}(id=${pessoa.idPessoa})}" class="card-img-top card-img-custom"
+                            th:alt="'Foto de ' + ${pessoa.nome}">
+
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-warning" th:text="${pessoa.nome}">Nome da Pessoa</h5>
+
+                            <p class="card-text mb-1">
+                                <strong>Desaparecimento:</strong>
+                                <span th:text="${#temporals.format(pessoa.endereco.dataVisto, 'dd/MM/yyyy')}"></span>
+                            </p>
+                            <p class="card-text mb-3">
+                                <strong>Local:</strong>
+                                <span th:text="${pessoa.endereco.cidade} + ' - ' + ${pessoa.endereco.estado}"></span>
+                            </p>
+
+                            <div class="mt-auto">
+                                <button type="button" class="btn btn-primary d-grid gap-2 col-8 mx-auto"
+                                    data-bs-toggle="modal" th:data-bs-target="'#detalhesModal' + ${pessoa.idPessoa}">
+                                    <i class="bi bi-search"></i> Ver Detalhes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" th:id="'detalhesModal' + ${pessoa.idPessoa}" tabindex="-1"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title" th:text="'Detalhes: ' + ${pessoa.nome}">Detalhes da Pessoa
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-4 text-center mb-3">
+                                            <img th:src="@{/imagem/{id}(id=${pessoa.idPessoa})}"
+                                                class="img-fluid rounded" style="max-height: 250px; object-fit: cover;"
+                                                th:alt="'Foto de ' + ${pessoa.nome}">
+                                        </div>
+
+                                        <div class="col-md-8">
+                                            <h6 class="text-warning">Dados Pessoais:</h6>
+                                            <p><strong>Nascimento:</strong> <span
+                                                    th:text="${#temporals.format(pessoa.dataNascimento, 'dd/MM/yyyy')}"></span>
+                                            </p>
+                                            <p><strong>Gênero:</strong> <span
+                                                    th:text="${pessoa.genero ?: 'Não Informado'}"></span></p>
+                                            <hr>
+
+                                            <h6 class="text-warning">Características Físicas:</h6>
+
+                                            <p><strong>Olhos:</strong> <span
+                                                    th:text="${pessoa.caracteristicas.corOlhos ?: 'Não Informado'}"></span>
+                                            </p>
+
+                                            <p><strong>Cabelo:</strong>
+                                                <span th:text="${
+                                                 (pessoa.caracteristicas.corCabelo ?: 'Cor Não Informada') + 
+                                                    ' (' + 
+                                                    (pessoa.caracteristicas.tipoCabelo ?: 'Tipo Não Informado') + 
+                                                    ')'
+                                                    }"></span>
+                                            </p>
+
+                                            <p><strong>Pele:</strong> <span
+                                                    th:text="${pessoa.caracteristicas.pele ?: 'Não Informado'}"></span>
+                                            </p>
+                                            <p><strong>Corpo:</strong> <span
+                                                    th:text="${pessoa.caracteristicas.tipoCorpo ?: 'Não Informado'}"></span>
+                                            </p>
+
+                                            <p><strong>Tatuagens/Cicatrizes:</strong>
+                                                <span
+                                                    th:text="${pessoa.caracteristicas.tatuagem} ? 'Tem Tatuagens, ' : 'Não tem Tatuagens, '"></span>
+                                                <span
+                                                    th:text="${pessoa.caracteristicas.cicatriz} ? 'Tem Cicatrizes.' : 'Não tem Cicatrizes.'"></span>
+                                            </p>
+                                            <hr>
+
+                                            <h6 class="text-warning">Último Local Visto:</h6>
+                                            <p><strong>Ocorrido em:</strong> <span
+                                                 th:text="${#temporals.format(pessoa.endereco.dataVisto, 'dd/MM/yyyy')}"
+                                                    ></span></p>
+                                            <p><strong>Endereço:</strong> <span
+                                                    th:text="${pessoa.endereco.rua ?: 'Não Informado'}"></span>, <span
+                                                    th:text="${pessoa.endereco.bairro ?: 'Não Informado'}"></span></p>
+                                            <p><strong>Local:</strong> <span
+                                                    th:text="${pessoa.endereco.cidade ?: 'Não Informado'} + ' - ' + ${pessoa.endereco.estado ?: 'NI'}"></span>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <h6 class="mt-3 text-warning">Observações Adicionais:</h6>
+                                    <p
+                                        th:text="${pessoa.caracteristicas.observacoes ?: 'Nenhuma observação adicional fornecida.'}">
+                                    </p>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
-    <footer th:replace="fragments/footer :: footer"></footer>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 </body>
+
 </html>
