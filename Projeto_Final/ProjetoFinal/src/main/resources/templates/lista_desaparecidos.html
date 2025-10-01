@@ -124,8 +124,8 @@
 
                                             <h6 class="text-warning">Último Local Visto:</h6>
                                             <p><strong>Ocorrido em:</strong> <span
-                                                 th:text="${#temporals.format(pessoa.endereco.dataVisto, 'dd/MM/yyyy')}"
-                                                    ></span></p>
+                                                    th:text="${#temporals.format(pessoa.endereco.dataVisto, 'dd/MM/yyyy')}"></span>
+                                            </p>
                                             <p><strong>Endereço:</strong> <span
                                                     th:text="${pessoa.endereco.rua ?: 'Não Informado'}"></span>, <span
                                                     th:text="${pessoa.endereco.bairro ?: 'Não Informado'}"></span></p>
@@ -140,6 +140,10 @@
                                         th:text="${pessoa.caracteristicas.observacoes ?: 'Nenhuma observação adicional fornecida.'}">
                                     </p>
                                 </div>
+                                <div class="alert alert-danger text-center fw-bold" role="alert">
+                                        <i class="bi bi-megaphone-fill"></i> VOCÊ VIU ESSA PESSOA?
+                                        <p class="mb-0 mt-1">Ligue imediatamente para a Polícia Militar (190) ou para a Polícia Civil (197).</p>
+                                    </div>
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
