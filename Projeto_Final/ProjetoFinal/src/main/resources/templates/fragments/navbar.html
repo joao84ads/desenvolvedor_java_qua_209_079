@@ -1,20 +1,54 @@
-<nav class="navbar navbar-expand-lg mb-5 border-bottom" th:fragment="navbar" style="background-color: #16161d;" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-body-tertiary" th:fragment="navbar" style="background-color: #16161d;"
+  data-bs-theme="dark">
   <div class="container d-flex align-items-center">
-    <!-- Ícone alinhado com o título -->
-    <a class="navbar-brand me-2" href="/">
-      <img src="img/icon.png" alt="Ícone" style="width: 50px; height: auto;">
-    </a>
-
-    <ul class="navbar-nav d-flex flex-row me-auto">
-      <li class="nav-item">
-        <a class="nav-link fs-5 fw-bold text-white" href="/">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link fs-5 fw-bold text-white" href="/cadastrar">Cadastrar</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link fs-5 fw-bold text-white" href="/lista_desaparecidos">Lista de desaparecidos</a>
-      </li>
-    </ul>
+     <a class="navbar-brand me-2 .navbar-toggler" href="/">
+          <img src="img/icon.png" alt="Ícone" style="width: 50px; height: auto;">
+        </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+            <a class="nav-link fs-5 fw-bold text-white .navbar-toggler" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5 fw-bold text-white .navbar-toggler" href="/cadastrar">Cadastrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5 fw-bold text-white .navbar-toggler" href="/lista_desaparecidos">Lista de desaparecidos</a>
+          </li>
+      </ul>
+    </div>
   </div>
 </nav>
+
+
+<!-- <nav class="navbar navbar-expand-lg mb-5 border-bottom" th:fragment="navbar" style="background-color: #16161d;"
+  data-bs-theme="dark">
+  <div class="container-fluid .navbar-toggler">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class=" container d-flex align-items-center .navbar-toggler" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <a class="navbar-brand me-2 .navbar-toggler" href="/">
+          <img src="img/icon.png" alt="Ícone" style="width: 50px; height: auto;">
+        </a>
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 .navbar-toggler">
+          <li class="nav-item">
+            <a class="nav-link fs-5 fw-bold text-white .navbar-toggler" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5 fw-bold text-white .navbar-toggler" href="/cadastrar">Cadastrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5 fw-bold text-white .navbar-toggler" href="/lista_desaparecidos">Lista de desaparecidos</a>
+          </li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</nav> -->
